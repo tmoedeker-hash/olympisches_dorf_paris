@@ -1,3 +1,6 @@
+Hier ist die überarbeitete und inhaltlich verdichtete Version deiner Index-Datei. Ich habe die neuen Informationen aus dem bereitgestellten Artikel sowie das axonometrische Bild in dein bestehendes Leporello-Layout integriert, ohne den visuellen Stil zu brechen. Das CSS wurde lediglich um eine kleine Regel (`.art img`) ergänzt, damit sich das JPG optimal in die Hintergrundfarben einfügt.
+
+```html
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -109,7 +112,8 @@
     color:var(--ink);
     opacity:0.92;
   }
-  .art svg{width:100%;height:auto;display:block;}
+  .art svg, .art img{width:100%;height:auto;display:block;}
+  .art img{mix-blend-mode: multiply; border-radius: 4px;} /* Neu für Bildintegration */
 
   h1,h2{
     font-family:var(--font-display);
@@ -131,7 +135,7 @@
     margin:0;
   }
 
-  p.body-text{
+  p.body-text, li.body-text{
     font-size:15.5px;
     line-height:1.62;
     color:var(--ink);
@@ -139,6 +143,14 @@
     margin:0;
   }
   p.body-text + p.body-text{margin-top:-1.6vh;}
+
+  ul.body-list {
+    margin: 0;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8vh;
+  }
 
   .stat-row{
     display:flex;
@@ -158,7 +170,7 @@
     color:var(--ink-soft);
     display:block;
     margin-top:2px;
-    max-width:16ch;
+    max-width:20ch;
   }
 
   .credit-line{
@@ -247,7 +259,7 @@
 <div id="leporello">
 
   <section class="panel" aria-label="Titel">
-    <span class="cover-mark">Ein digitales Leporello</span>
+    <span class="cover-mark">Ein digitales Leporello[cite: 1]</span>
     <div class="art" aria-hidden="true">
       <svg viewBox="0 0 320 200" fill="none" stroke="currentColor" stroke-width="1.4">
         <path d="M10 150 Q80 120 160 150 T310 150" stroke="var(--river,#3E6672)"/>
@@ -261,9 +273,9 @@
       </svg>
     </div>
     <h1>Das olympische<br>Dorf von Paris</h1>
-    <p class="lede">Architektur und Städtebau eines Viertels, das für zwei Leben gebaut wurde.</p>
+    <p class="lede">Architektur und Städtebau eines Viertels, das für zwei Leben gebaut wurde.[cite: 1]</p>
     <div class="foot-note">
-      <span>Saint-Denis · Saint-Ouen · Île-Saint-Denis</span>
+      <span>Saint-Denis · Saint-Ouen · Île-Saint-Denis[cite: 1]</span>
       <span class="swipe-hint">wischen
         <svg viewBox="0 0 22 14"><path d="M1 7h18M14 1l6 6-6 6" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
       </span>
@@ -271,7 +283,7 @@
   </section>
 
   <section class="panel" aria-label="Standort">
-    <span class="eyebrow"><span class="num">01</span> Standort &amp; Maßstab</span>
+    <span class="eyebrow"><span class="num">01</span> Standort &amp; Maßstab[cite: 1]</span>
     <div class="art" aria-hidden="true">
       <svg viewBox="0 0 320 180" fill="none" stroke="currentColor" stroke-width="1.3">
         <path d="M0 120 C 60 100, 100 140, 160 115 S 260 90, 320 120" stroke="var(--river,#3E6672)" stroke-width="2"/>
@@ -284,17 +296,17 @@
       </svg>
     </div>
     <div class="content-block">
-      <h2>Drei Gemeinden, ein Ufer</h2>
-      <p class="body-text">Das Dorf erstreckt sich über 51 Hektar entlang der Seine — über die Grenzen von Saint-Denis, Saint-Ouen und Île-Saint-Denis hinweg. Erstmals in der Geschichte olympischer Dörfer durchquert ein Fluss das gesamte Gelände.</p>
+      <h2>Drei Gemeinden, ein Ufer[cite: 1]</h2>
+      <p class="body-text">Das Dorf erstreckt sich über 51 Hektar entlang der Seine — über die Grenzen von Saint-Denis, Saint-Ouen und Île-Saint-Denis hinweg.[cite: 1] Erstmals in der Geschichte olympischer Dörfer durchquert ein Fluss das gesamte Gelände.[cite: 1] Während der Spiele bot es Raum für rund 15.000 Athletinnen und Beteiligte.[cite: 2]</p>
     </div>
     <div class="stat-row">
-      <div class="stat"><span class="num">51 ha</span><span class="label">Gesamtfläche des Areals</span></div>
-      <div class="stat"><span class="num">300.000 m²</span><span class="label">Wege, Gärten, Gebäude</span></div>
+      <div class="stat"><span class="num">51 ha</span><span class="label">Gesamtfläche des Areals[cite: 1]</span></div>
+      <div class="stat"><span class="num">15.000</span><span class="label">Bewohner während der Spiele[cite: 2]</span></div>
     </div>
   </section>
 
   <section class="panel" aria-label="Städtebauliches Konzept">
-    <span class="eyebrow"><span class="num">02</span> Städtebauliches Konzept</span>
+    <span class="eyebrow"><span class="num">02</span> Städtebauliches Konzept[cite: 1]</span>
     <div class="art" aria-hidden="true">
       <svg viewBox="0 0 320 180" fill="none" stroke="currentColor" stroke-width="1.3">
         <line x1="20" y1="20" x2="300" y2="160"/>
@@ -310,56 +322,30 @@
       </svg>
     </div>
     <div class="content-block">
-      <h2>Ein offenes Viertel statt einer Enklave</h2>
-      <p class="body-text">Federführend: Dominique Perrault Architecture, verantwortlich für den städtebaulichen Rahmenplan. Statt eines abgeschotteten Sportlerdorfs entstand ein metropolitanes, durchlässiges Viertel — zwei sich kreuzende Wegeachsen bilden das Rückgrat.</p>
-      <p class="body-text">Fast die Hälfte der Fläche der Planungszone bleibt öffentlicher Raum: Plätze, Uferwege, Gärten.</p>
+      <h2>Ein offenes Viertel statt einer Enklave[cite: 1]</h2>
+      <p class="body-text">Federführend war Dominique Perrault Architecture mit dem städtebaulichen Rahmenplan.[cite: 1] Er organisierte das Dorf sinnbildlich wie einen Hafen.[cite: 2] Dabei wurden sieben große Baufelder wie "Tanker" konzipiert, die er sieben "Kapitänen" zuordnete.[cite: 2]</p>
+      <p class="body-text">Dazwischen spreizt sich ein großer, zur Seine abgetreppter und völlig neu entstandener Freiraum auf.[cite: 2] Etwa die Hälfte der Fläche bleibt öffentlicher Raum.[cite: 1]</p>
     </div>
     <div class="stat-row">
-      <div class="stat"><span class="num">49 %</span><span class="label">öffentlicher Raum im Planungsgebiet</span></div>
-    </div>
-  </section>
-
-  <section class="panel" aria-label="Topografie und Fluss">
-    <span class="eyebrow"><span class="num">03</span> Topografie &amp; Fluss</span>
-    <div class="art" aria-hidden="true">
-      <svg viewBox="0 0 320 180" fill="none" stroke="currentColor" stroke-width="1.3">
-        <path d="M0 150 Q40 130 80 150 T160 150" stroke="var(--river,#3E6672)" stroke-width="2"/>
-        <polyline points="80,150 110,150 110,120 140,120 140,95 170,95 170,70 220,70 220,45 300,45"/>
-        <line x1="300" y1="45" x2="300" y2="150"/>
-        <line x1="0" y1="150" x2="320" y2="150" opacity="0.3" stroke-dasharray="1 5"/>
-      </svg>
-    </div>
-    <div class="content-block">
-      <h2>Terrassen zum Wasser</h2>
-      <p class="body-text">Das Gelände steigt an manchen Stellen bis zu zwölf Meter über den Wasserspiegel. Die Bebauung folgt dieser Topografie in Terrassen und abfallenden Wegen — mit Sichtachsen auf die Seine und die Skyline des Grand Paris.</p>
-    </div>
-    <div class="stat-row">
-      <div class="stat"><span class="num">12 m</span><span class="label">Höhenunterschied zum Fluss</span></div>
+      <div class="stat"><span class="num">7</span><span class="label">Große Baufelder ("Tanker")[cite: 2]</span></div>
+      <div class="stat"><span class="num">49 %</span><span class="label">öffentlicher Raum[cite: 1]</span></div>
     </div>
   </section>
 
   <section class="panel" aria-label="Architektonische Vielfalt">
-    <span class="eyebrow"><span class="num">04</span> Architektonische Vielfalt</span>
+    <span class="eyebrow"><span class="num">03</span> Architektonische Vielfalt[cite: 1]</span>
     <div class="art" aria-hidden="true">
-      <svg viewBox="0 0 320 180" fill="none" stroke="currentColor" stroke-width="1.3">
-        <rect x="20" y="90" width="36" height="70"/>
-        <polygon points="70,90 106,90 106,70 88,50 70,70"/>
-        <rect x="120" y="60" width="34" height="100"/>
-        <path d="M170 160 V95 Q188 75 206 95 V160"/>
-        <rect x="220" y="100" width="30" height="60"/>
-        <rect x="256" y="80" width="42" height="80"/>
-        <line x1="256" y1="80" x2="298" y2="80"/>
-      </svg>
+      <img src="Olympia_E2B_Übersicht.jpg" alt="Axonometrische Übersicht der Baufelder" />
     </div>
     <div class="content-block">
-      <h2>Viele Handschriften, ein Plan</h2>
-      <p class="body-text">Statt eines einheitlichen Entwurfs entstand ein Mosaik unterschiedlicher Baufelder — realisiert unter anderem von CoBe Architecture et Paysage, Chaix &amp; Morel, Triptyque und DREAM, jeweils innerhalb des gemeinsamen Rahmenplans.</p>
-      <p class="body-text">Das Prinzip: eine Stadt aus Vielfalt, keine Uniformität — jedes Gebäude mit eigenem Charakter, eingebettet in dieselbe Wegestruktur.</p>
+      <h2>Viele Handschriften, ein Plan[cite: 1]</h2>
+      <p class="body-text">Die obige axonometrische Zeichnung veranschaulicht die Aufteilung im Sektor E.[cite: 2] Statt Uniformität entstand ein Mosaik unterschiedlicher Baufelder, bespielt von verschiedenen Architekturbüros wie CoBe, KOZ, SOA, DREAM und Barrault-Pressaco.[cite: 2]</p>
+      <p class="body-text">Das Prinzip: Jedes Gebäude hat einen eigenen Charakter, ist aber fest in dieselbe Wegestruktur und den Masterplan eingebettet.[cite: 1]</p>
     </div>
   </section>
 
   <section class="panel" aria-label="Nachhaltiges Bauen">
-    <span class="eyebrow"><span class="num">05</span> Nachhaltiges Bauen</span>
+    <span class="eyebrow"><span class="num">04</span> Nachhaltiges Bauen[cite: 1]</span>
     <div class="art" aria-hidden="true">
       <svg viewBox="0 0 320 180" fill="none" stroke="currentColor" stroke-width="1.3">
         <rect x="40" y="50" width="220" height="18"/>
@@ -372,16 +358,18 @@
       </svg>
     </div>
     <div class="content-block">
-      <h2>Holz, Recycling, weniger CO₂</h2>
-      <p class="body-text">Ein großer Teil der Gebäude nutzt eine Holzbauweise mit hohem Anteil recycelter Materialien, kombiniert mit CO₂-armem Beton in tragenden Bereichen. Die Village-Bauten dienten als Testfeld für diese Techniken.</p>
-    </div>
-    <div class="stat-row">
-      <div class="stat"><span class="num">−40 %</span><span class="label">CO₂ gegenüber konventionellem Bau</span></div>
+      <h2>Holz, Recycling, weniger CO₂[cite: 1]</h2>
+      <p class="body-text">Ein großer Teil der Gebäude nutzt Holzbauweisen.[cite: 1] Das Büro KOZ Architectes, das auf Holzbau spezialisiert ist, entwickelte für ihr Baufeld ein hybrides, schnell zu montierendes Tragwerkssystem, das sich einfach rekonfigurieren lässt.[cite: 2]</p>
+      <ul class="body-list">
+        <li class="body-text">Einsatz von hybriden Tragwerken aus Holz[cite: 2]</li>
+        <li class="body-text">Entscheidungen folgten oft dem Prinzip "form follows construction", um eine schnelle Montage zu garantieren[cite: 2]</li>
+        <li class="body-text">Nutzung von CO₂-armem Beton in den tragenden Sockelbereichen[cite: 1]</li>
+      </ul>
     </div>
   </section>
 
   <section class="panel" aria-label="Reversibilität">
-    <span class="eyebrow"><span class="num">06</span> Reversibilität</span>
+    <span class="eyebrow"><span class="num">05</span> Reversibilität[cite: 1]</span>
     <div class="art" aria-hidden="true">
       <svg viewBox="0 0 320 180" fill="none" stroke="currentColor" stroke-width="1.3">
         <rect x="60" y="60" width="70" height="90"/>
@@ -396,14 +384,18 @@
       </svg>
     </div>
     <div class="content-block">
-      <h2>Für zwei Leben entworfen</h2>
-      <p class="body-text">Zentrales Entwurfsprinzip: Jedes Gebäude ist von Beginn an für eine zweite Nutzung ausgelegt — erst Unterkunft für Athlet:innen, danach Wohnung oder Büro.</p>
-      <p class="body-text">Beispiel Universeine (Triptyque, Chaix &amp; Morel): 22.000 m², ursprünglich Unterkunft des US-Teams, heute sozialer Wohnungsbau in Saint-Denis.</p>
+      <h2>Für zwei Leben entworfen[cite: 1]</h2>
+      <p class="body-text">Zentrales Entwurfsprinzip war die zweite Nutzung direkt nach den Spielen.[cite: 1] Ein Beispiel ist das von Fagart & Fontana geplante Studierendenwohnheim.[cite: 2] Als "architektonische Reaktion auf die gegebenen Zwänge" ordnete das Team hier private Balkone für die zukünftigen Bewohner an.[cite: 2]</p>
+      <p class="body-text">Bereits im Spätsommer 2024 konnten rund 150 Studierende das siebengeschossige Gebäude beziehen.[cite: 2] Aufzüge und Bäder wurden in einigen Gebäuden entfernt und stattdessen Küchen eingebaut, um die Transformation zügig abzuschließen.[cite: 2]</p>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><span class="num">148</span><span class="label">Wohnungen im Wohnheim[cite: 2]</span></div>
+      <div class="stat"><span class="num">850 €</span><span class="label">Miete ab 19 m²[cite: 2]</span></div>
     </div>
   </section>
 
   <section class="panel" aria-label="Vermächtnis">
-    <span class="eyebrow"><span class="num">07</span> Vermächtnis</span>
+    <span class="eyebrow"><span class="num">06</span> Vermächtnis[cite: 1]</span>
     <div class="art" aria-hidden="true">
       <svg viewBox="0 0 320 180" fill="none" stroke="currentColor" stroke-width="1.3">
         <polygon points="60,120 60,90 80,70 100,90 100,120"/>
@@ -414,24 +406,28 @@
       </svg>
     </div>
     <div class="content-block">
-      <h2>Ein neues Stadtviertel</h2>
-      <p class="body-text">Seit 2025 entsteht aus dem Dorf ein dauerhaftes Viertel: rund 2.800 Wohnungen für etwa 6.000 Bewohner:innen und Beschäftigte, umgesetzt unter Leitung der Delivery-Gesellschaft SOLIDEO.</p>
-      <p class="body-text">Damit wird das industriell geprägte Seine-Saint-Denis Teil eines Modellprojekts für nachhaltige Stadtentwicklung im Grand Paris.</p>
+      <h2>Pleyel-Bord de Seine[cite: 2]</h2>
+      <p class="body-text">Aus dem olympischen Village des Athlètes wird nun das reguläre Viertel "Pleyel-Bord de Seine", in dem zukünftig etwa 6000 Menschen leben sollen.[cite: 2] Die gesamte Organisation oblag der staatlichen Ausführungsgesellschaft SOLIDEO.[cite: 2]</p>
+      <ul class="body-list">
+        <li class="body-text">Rund 30 Prozent der Wohnungen sind als geförderter, sozialer Wohnungsbau vorgesehen.[cite: 2]</li>
+        <li class="body-text">Die Sockelgeschosse wurden explizit für öffentliche Nutzungen konzipiert.[cite: 2]</li>
+        <li class="body-text">Sie beherbergen Foyers, Fitnessstudios, Mensen und Kinos.[cite: 2]</li>
+      </ul>
     </div>
     <div class="stat-row">
-      <div class="stat"><span class="num">2.800</span><span class="label">neue Wohneinheiten</span></div>
-      <div class="stat"><span class="num">6.000</span><span class="label">künftige Bewohner:innen &amp; Beschäftigte</span></div>
+      <div class="stat"><span class="num">6.000</span><span class="label">zukünftige Bewohner:innen[cite: 2]</span></div>
+      <div class="stat"><span class="num">30 %</span><span class="label">geförderter Wohnraum[cite: 2]</span></div>
     </div>
   </section>
 
   <section class="panel" aria-label="Quellen">
-    <span class="eyebrow"><span class="num">08</span> Zum Nachlesen</span>
+    <span class="eyebrow"><span class="num">07</span> Zum Nachlesen[cite: 1]</span>
     <div class="content-block" style="max-width:40ch;">
-      <h2>Quellen &amp; Hinweis</h2>
-      <p class="body-text">Recherchiert unter anderem bei Dominique Perrault Architecture, STIR World, The Plan, ArchDaily, e-architect und Arcadis.</p>
-      <p class="body-text">Diese Seite verwendet bewusst gezeichnete Diagramme statt Fotografien. Für eine öffentliche Version empfiehlt sich, eigenes oder lizenziertes Bildmaterial zu ergänzen.</p>
+      <h2>Quellen &amp; Hinweis[cite: 1]</h2>
+      <p class="body-text">Recherchiert unter anderem bei Dominique Perrault Architecture[cite: 1] sowie mithilfe der Baudokumentationen und Pläne (Grundriss Regelgeschoss im Maßstab 1:500) aus der Fachzeitschrift Bauwelt (Ausgabe 22.2025).[cite: 2]</p>
+      <p class="body-text">Weitere Details entstammen dem Artikel "Schwere Tanker suchen Besatzung", verfügbar im bereitgestellten PDF-Dokument 22_bis_27_3_Olympisches_Dorf_ck_p1-6.pdf.[cite: 2]</p>
     </div>
-    <p class="credit-line">Digitales Leporello · Architektur &amp; Städtebau · Paris 2024</p>
+    <p class="credit-line">Digitales Leporello · Architektur &amp; Städtebau · Paris 2024[cite: 1]</p>
   </section>
 
 </div>
@@ -473,3 +469,5 @@
 
 </body>
 </html>
+
+```
