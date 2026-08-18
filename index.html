@@ -1,6 +1,3 @@
-Hier ist die überarbeitete und inhaltlich verdichtete Version deiner Index-Datei. Ich habe die neuen Informationen aus dem bereitgestellten Artikel sowie das axonometrische Bild in dein bestehendes Leporello-Layout integriert, ohne den visuellen Stil zu brechen. Das CSS wurde lediglich um eine kleine Regel (`.art img`) ergänzt, damit sich das JPG optimal in die Hintergrundfarben einfügt.
-
-```html
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -112,8 +109,7 @@ Hier ist die überarbeitete und inhaltlich verdichtete Version deiner Index-Date
     color:var(--ink);
     opacity:0.92;
   }
-  .art svg, .art img{width:100%;height:auto;display:block;}
-  .art img{mix-blend-mode: multiply; border-radius: 4px;} /* Neu für Bildintegration */
+  .art svg{width:100%;height:auto;display:block;}
 
   h1,h2{
     font-family:var(--font-display);
@@ -334,8 +330,94 @@ Hier ist die überarbeitete und inhaltlich verdichtete Version deiner Index-Date
 
   <section class="panel" aria-label="Architektonische Vielfalt">
     <span class="eyebrow"><span class="num">03</span> Architektonische Vielfalt[cite: 1]</span>
-    <div class="art" aria-hidden="true">
-      <img src="Olympia_E2B_Übersicht.jpg" alt="Axonometrische Übersicht der Baufelder" />
+    <div class="art" aria-hidden="true" style="margin-top:-2vh; margin-bottom:-2vh;">
+      <!-- Native SVG Axonometrie als Ersatz für das Rasterbild -->
+      <svg viewBox="0 0 320 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <g id="b1">
+            <polygon points="20,0 40,10 20,20 0,10" fill="var(--t)"/>
+            <polygon points="0,10 20,20 20,40 0,30" fill="var(--l)"/>
+            <polygon points="20,20 40,10 40,30 20,40" fill="var(--r)"/>
+          </g>
+          <g id="b-tall">
+            <polygon points="20,0 40,10 20,20 0,10" fill="var(--t)"/>
+            <polygon points="0,10 20,20 20,55 0,45" fill="var(--l)"/>
+            <polygon points="20,20 40,10 40,45 20,55" fill="var(--r)"/>
+          </g>
+          <g id="b-flat">
+            <polygon points="20,0 40,10 20,20 0,10" fill="var(--t)"/>
+            <polygon points="0,10 20,20 20,28 0,18" fill="var(--l)"/>
+            <polygon points="20,20 40,10 40,18 20,28" fill="var(--r)"/>
+          </g>
+          <style>
+            .c-dream { --t:#7BC8B4; --l:#5BA894; --r:#3B8874; }
+            .c-cobe { --t:#F2AAB9; --l:#D28A99; --r:#B26A79; }
+            .c-koz { --t:#92B8D8; --l:#7298B8; --r:#527898; }
+            .c-georges { --t:#A8A9D9; --l:#8889B9; --r:#686999; }
+            .c-soa { --t:#F5B09E; --l:#D5907E; --r:#B5705E; }
+            .c-lambert { --t:#E08888; --l:#C06868; --r:#A04848; }
+            .c-barrault { --t:#F9DF86; --l:#D9BF66; --r:#B99F46; }
+            .lbl { font-family:var(--font-mono); font-size:6.5px; fill:var(--ink); opacity:0.75; letter-spacing:0.03em;}
+            .lbl-bold { font-weight:600; }
+          </style>
+        </defs>
+
+        <!-- Plot boundaries & grid base -->
+        <path d="M 80,120 L 200,60 L 300,110 L 180,170 Z" stroke="var(--ink)" stroke-dasharray="2 3" stroke-width="0.8" opacity="0.3"/>
+        <line x1="140" y1="90" x2="240" y2="140" stroke="var(--ink)" stroke-dasharray="1 3" stroke-width="0.6" opacity="0.2"/>
+        <line x1="120" y1="140" x2="220" y2="90" stroke="var(--ink)" stroke-dasharray="1 3" stroke-width="0.6" opacity="0.2"/>
+
+        <!-- Buildings drawn back-to-front for correct isometric overlap -->
+        <!-- E3 DREAM -->
+        <use href="#b1" x="230" y="30" class="c-dream"/>
+        <use href="#b-tall" x="250" y="40" class="c-dream"/>
+        <use href="#b1" x="270" y="50" class="c-dream"/>
+        <use href="#b1" x="250" y="60" class="c-dream"/>
+        <text x="275" y="35" class="lbl">E3 <tspan class="lbl-bold">DREAM</tspan></text>
+
+        <!-- E2-B COBE -->
+        <use href="#b1" x="190" y="40" class="c-cobe"/>
+        <use href="#b-tall" x="170" y="50" class="c-cobe"/>
+        <use href="#b1" x="210" y="50" class="c-cobe"/>
+        <text x="150" y="42" class="lbl">E2-B <tspan class="lbl-bold">COBE</tspan></text>
+
+        <!-- E2-A KOZ -->
+        <use href="#b-tall" x="150" y="60" class="c-koz"/>
+        <text x="120" y="62" class="lbl">E2-A <tspan class="lbl-bold">KOZ</tspan></text>
+
+        <!-- E5 BARRAULT-PRESSACO -->
+        <use href="#b-flat" x="240" y="80" class="c-barrault"/>
+        <use href="#b-flat" x="260" y="90" class="c-barrault"/>
+        <use href="#b1" x="220" y="90" class="c-barrault"/>
+        <use href="#b-flat" x="240" y="100" class="c-barrault"/>
+        <text x="265" y="85" class="lbl">E5 <tspan class="lbl-bold">BARRAULT</tspan></text>
+
+        <!-- E2-C GEORGES -->
+        <use href="#b1" x="190" y="70" class="c-georges"/>
+        <text x="205" y="74" class="lbl">E2-C <tspan class="lbl-bold">GEORGES</tspan></text>
+
+        <!-- E1-B SOA -->
+        <use href="#b1" x="130" y="70" class="c-soa"/>
+        <use href="#b-tall" x="150" y="80" class="c-soa"/>
+        <text x="100" y="82" class="lbl">E1-B <tspan class="lbl-bold">SOA</tspan></text>
+
+        <!-- E4 KOZ -->
+        <use href="#b1" x="180" y="100" class="c-koz"/>
+        <use href="#b1" x="200" y="110" class="c-koz"/>
+        <use href="#b-tall" x="160" y="110" class="c-koz"/>
+        <text x="195" y="138" class="lbl">E4 <tspan class="lbl-bold">KOZ</tspan></text>
+
+        <!-- E1-A LAMBERT-LENACK -->
+        <use href="#b-tall" x="110" y="90" class="c-lambert"/>
+        <use href="#b1" x="130" y="100" class="c-lambert"/>
+        <use href="#b1" x="90" y="100" class="c-lambert"/>
+        <text x="70" y="128" class="lbl">E1-A <tspan class="lbl-bold">LAMBERT</tspan></text>
+
+        <!-- Street context -->
+        <line x1="60" y1="140" x2="170" y2="195" stroke="var(--ink)" stroke-width="1.2" opacity="0.85"/>
+        <text x="65" y="152" class="lbl">Les Belvédères</text>
+        <text x="120" y="185" class="lbl">Les Villas</text>
+      </svg>
     </div>
     <div class="content-block">
       <h2>Viele Handschriften, ein Plan[cite: 1]</h2>
@@ -469,5 +551,3 @@ Hier ist die überarbeitete und inhaltlich verdichtete Version deiner Index-Date
 
 </body>
 </html>
-
-```
